@@ -4,11 +4,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -84,15 +80,16 @@ public class Changelog extends JFrame {
     }
 
     private void loadChangelog() {
-        FileReader reader = null;
+        InputStreamReader reader = null;
         BufferedReader br = null;
         try {
-            reader = new FileReader(this.getClass().getResource("/res/changelog.txt").getFile());
+            InputStream changelog = this.getClass().getResourceAsStream("/res/changelog.txt");
+            reader = new InputStreamReader(changelog);
             br = new BufferedReader(reader);
 
             String line;
             while ((line = br.readLine()) != null) {
-                changelog += line + "\n";
+                this.changelog += line + "\n";
             }
 
         } catch (IOException e) {
