@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clicker;
 
 import java.awt.AWTException;
@@ -18,10 +13,6 @@ import javax.swing.JSpinner;
 import javax.swing.JTabbedPane;
 import javax.swing.SpinnerNumberModel;
 
-/**
- *
- * @author Mats
- */
 public class HolderPanel extends JPanel implements Runnable, ActionListener {
 
     private JTabbedPane parent;
